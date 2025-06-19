@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - AMIEL COLORS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-poppins bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-white text-2xl font-bold tracking-wide">AMIEL COLORS</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="../index.html" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Home</a>
+                        <a href="../about/about.html" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">About</a>
+                        <a href="../services/services.html" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Services</a>
+                        <a href="projects.html" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300 bg-blue-700">Projects</a>
+                        <a href="../contacts/contacts.html" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600">Home</a>
+                <a href="../about/about.html" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600">About</a>
+                <a href="../services/services.html" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600">Services</a>
+                <a href="projects.html" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600 bg-blue-600">Projects</a>
+                <a href="../contacts/contacts.html" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Hero -->
+    <section class="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fadeIn">Our Projects</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto animate-fadeIn">Showcase of our recent work and design outputs</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-1 -mb-8"></div>
+    </section>
+
+    <!-- Projects Filter -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-wrap justify-center gap-4">
+            <button class="filter-btn px-4 py-2 rounded-full bg-blue-600 text-white font-medium" data-filter="all">All Projects</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 font-medium hover:bg-gray-300 transition duration-300" data-filter="branding">Branding</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 font-medium hover:bg-gray-300 transition duration-300" data-filter="print">Print</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 font-medium hover:bg-gray-300 transition duration-300" data-filter="digital">Digital</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 font-medium hover:bg-gray-300 transition duration-300" data-filter="custom">Custom</button>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+            <!-- Projects will be loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button id="close-modal" class="absolute top-4 right-4 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-700 transition duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="h-64 bg-gradient-to-r from-blue-400 to-purple-400 flex items-center justify-center">
+                    <i class="fas fa-project-diagram text-white text-8xl"></i>
+                </div>
+                <div class="p-8">
+                    <h2 id="modal-title" class="text-3xl font-bold mb-4 text-gray-800">Project Title</h2>
+                    <div class="flex items-center mb-6">
+                        <span id="modal-category" class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Category</span>
+                        <span class="mx-4 text-gray-400">|</span>
+                        <span id="modal-date" class="text-gray-500">June 2023</span>
+                    </div>
+                    <p id="modal-description" class="text-gray-700 mb-6">Project description goes here...</p>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Project Details</h3>
+                        <ul id="modal-details" class="list-disc pl-5 space-y-2 text-gray-600">
+                            <!-- Details will be added here -->
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Client</h4>
+                            <p id="modal-client" class="text-gray-600">Client Name</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Deliverables</h4>
+                            <p id="modal-deliverables" class="text-gray-600">List of deliverables</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">View Full Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="mt-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-10 text-center text-white max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Have a Project in Mind?</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">Let's discuss how we can bring your vision to life with our design expertise.</p>
+        <a href="../contacts/contacts.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 animate-pulse">Get Started</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">AMIEL COLORS</h3>
+                    <p class="text-gray-400">Professional design services to elevate your brand.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="../about/about.html" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="../services/services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition duration-300">Projects</a></li>
+                        <li><a href="../contacts/contacts.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Troubleshooting</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Software Assistance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">ID Layout</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Layouts</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2 text-blue-400"></i> info@amielcolors.com</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2 text-blue-400"></i> +123 456 7890</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-400"></i> 123 Design St, Creative City</li>
+                    </ul>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 AMIEL COLORS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js.js"></script>
+    <script>
+        // Sample projects data
+        const projects = [
+            {
+                id: 1,
+                title: "Corporate Branding Package",
+                description: "Complete branding solution for a tech startup including logo, business cards, and letterheads.",
+                category: "branding",
+                date: "May 2023",
+                client: "Tech Innovations Inc.",
+                deliverables: "Logo, Business Cards, Letterhead",
+                details: [
+                    "Created a modern, tech-inspired logo",
+                    "Developed cohesive brand guidelines",
+                    "Designed premium business stationery"
+                ],
+                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            },
+            {
+                id: 2,
+                title: "Wedding Invitation Suite",
+                description: "Elegant wedding invitation design with matching RSVP cards and envelopes.",
+                category: "print",
+                date: "April 2023",
+                client: "Smith & Johnson Wedding",
+                deliverables: "Invitation, RSVP Card, Envelope",
+                details: [
+                    "Custom floral motif design",
+                    "Premium textured paper selection",
+                    "Gold foil accent printing"
+                ],
+                image: "https://images.unsplash.com/photo-1519671482749-fd07be1f5b1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            },
+            {
+                id: 3,
+                title: "Product Packaging Design",
+                description: "Eye-catching packaging for a new line of organic skincare products.",
+                category: "custom",
+                date: "March 2023",
+                client: "Nature's Glow Skincare",
+                deliverables: "Primary Packaging, Secondary Packaging",
+                details: [
+                    "Eco-friendly material selection",
+                    "Minimalist design approach",
+                    "Custom illustration work"
+                ],
+                image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+            },
+            {
+                id: 4,
+                title: "Restaurant Menu Design",
+                description: "Modern menu design for a high-end Italian restaurant.",
+                category: "print",
+                date: "February 2023",
+                client: "Bella Cucina",
+                deliverables: "Dinner Menu, Wine List, Dessert Menu",
+                details: [
+                    "Italian-inspired typography",
+                    "Food photography coordination",
+                    "Leather-bound cover design"
+                ],
+                image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            },
+            {
+                id: 5,
+                title: "Event Banner Design",
+                description: "Large format banners for a corporate anniversary event.",
+                category: "digital",
+                date: "January 2023",
+                client: "Global Solutions Corp.",
+                deliverables: "Stage Backdrop, Welcome Banner, Directional Signs",
+                details: [
+                    "High-resolution vector artwork",
+                    "Bold, legible typography",
+                    "Modular design system"
+                ],
+                image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            },
+            {
+                id: 6,
+                title: "ID Card System",
+                description: "Complete employee ID card system with security features.",
+                category: "custom",
+                date: "December 2022",
+                client: "SecureTech Solutions",
+                deliverables: "ID Card Design, Database Integration",
+                details: [
+                    "Custom holographic security features",
+                    "Barcode integration",
+                    "Database template setup"
+                ],
+                image: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80"
+            }
+        ];
+
+        // Load projects
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectsContainer = document.getElementById('projects-container');
+            
+            projects.forEach(project => {
+                const projectElement = document.createElement('div');
+                projectElement.className = `project-item bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 group animate-fadeInUp`;
+                projectElement.dataset.category = project.category;
+                
+                projectElement.innerHTML = `
+                    <div class="h-64 overflow-hidden">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full ${getCategoryColor(project.category)}">${capitalizeFirstLetter(project.category)}</span>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2 mt-3">${project.title}</h3>
+                        <p class="text-gray-600 mb-4">${project.description}</p>
+                        <button class="view-project-btn px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition duration-300" data-id="${project.id}">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                `;
+                
+                projectsContainer.appendChild(projectElement);
+            });
+
+            // Filter projects
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-800', 'hover:bg-gray-300');
+                    });
+                    this.classList.remove('bg-gray-200', 'text-gray-800', 'hover:bg-gray-300');
+                    this.classList.add('bg-blue-600', 'text-white');
+                    
+                    // Filter projects
+                    const filter = this.dataset.filter;
+                    const projectItems = document.querySelectorAll('.project-item');
+                    
+                    projectItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Project modal
+            const modal = document.getElementById('project-modal');
+            const closeModal = document.getElementById('close-modal');
+            const viewProjectButtons = document.querySelectorAll('.view-project-btn');
+            
+            viewProjectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const projectId = parseInt(this.dataset.id);
+                    const project = projects.find(p => p.id === projectId);
+                    
+                    if (project) {
+                        document.getElementById('modal-title').textContent = project.title;
+                        document.getElementById('modal-category').textContent = capitalizeFirstLetter(project.category);
+                        document.getElementById('modal-date').textContent = project.date;
+                        document.getElementById('modal-description').textContent = project.description;
+                        document.getElementById('modal-client').textContent = project.client;
+                        document.getElementById('modal-deliverables').textContent = project.deliverables;
+                        
+                        const detailsList = document.getElementById('modal-details');
+                        detailsList.innerHTML = '';
+                        project.details.forEach(detail => {
+                            const li = document.createElement('li');
+                            li.textContent = detail;
+                            detailsList.appendChild(li);
+                        });
+                        
+                        modal.classList.remove('hidden');
+                    }
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.classList.add('hidden');
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+
+        function getCategoryColor(category) {
+            switch(category) {
+                case 'branding': return 'bg-purple-100 text-purple-800';
+                case 'print': return 'bg-blue-100 text-blue-800';
+                case 'digital': return 'bg-green-100 text-green-800';
+                case 'custom': return 'bg-yellow-100 text-yellow-800';
+                default: return 'bg-gray-100 text-gray-800';
+            }
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+    </script>
+</body>
+</html>
