@@ -135,7 +135,7 @@ function SendMail() {
         console.log('EmailJS response:', response);
         // Remove alert and redirect to confirmation page
         // alert("Message sent successfully! Thank you for contacting us.");
-        window.location.href = "message-sent.html";
+        window.location.href = "../message-sent.html";
     })
     .catch(function(error) {
         console.error('EmailJS error:', error);
