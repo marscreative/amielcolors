@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
 
             // Send email using EmailJS
-            emailjs.send("default_service", "template_amielcolors", {
+            emailjs.send("service_5pjnn8m", "template_vyv0zvk", {
                 from_name: contactForm.name.value,
                 from_email: contactForm.email.value,
                 phone: contactForm.phone.value,
