@@ -133,8 +133,9 @@ function SendMail() {
     emailjs.send("service_5pjnn8m", "template_vyv0zvk", params)
     .then(function(response) {
         console.log('EmailJS response:', response);
-        alert("Message sent successfully! Thank you for contacting us.");
-        document.getElementById("contact-form").reset();
+        // Remove alert and redirect to confirmation page
+        // alert("Message sent successfully! Thank you for contacting us.");
+        window.location.href = "message-sent.html";
     })
     .catch(function(error) {
         console.error('EmailJS error:', error);
