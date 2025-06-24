@@ -130,7 +130,7 @@ window.onEmailJSReady = function() {
             console.log('Submitting contact form via EmailJS...');
 
             // Send email using EmailJS
-            emailjs.send("service_5pjnn8m", "template_amielcolors", {
+            emailjs.send("service_5pjnn8m", "ttemplate_vyv0zvk", {
                 name: contactForm.name.value,
                 email: contactForm.email.value,
                 phone: contactForm.phone.value,
