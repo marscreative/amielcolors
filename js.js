@@ -116,7 +116,7 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
 });
 
 // EmailJS contact form submission handling with initialization
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = function() {
     if (typeof emailjs === 'undefined') {
         console.error('EmailJS SDK not loaded.');
         return;
@@ -146,4 +146,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});
+};
