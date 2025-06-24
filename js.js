@@ -127,6 +127,8 @@ window.onEmailJSReady = function() {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
+            console.log('Submitting contact form via EmailJS...');
+
             // Send email using EmailJS
             emailjs.send("service_5pjnn8m", "template_vyv0zvk", {
                 from_name: contactForm.name.value,
@@ -137,12 +139,15 @@ window.onEmailJSReady = function() {
                 to_email: "marvinmangahas32@gmail.com"
             })
             .then(function(response) {
+                console.log('EmailJS response:', response);
                 alert("Message sent successfully! Thank you for contacting us.");
                 contactForm.reset();
             }, function(error) {
+                console.error('EmailJS error:', error);
                 alert("Failed to send message. Please try again later.");
-                console.error("EmailJS error:", error);
             });
         });
+    } else {
+        console.error('Contact form element not found.');
     }
 };
