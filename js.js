@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert("Message sent successfully! Thank you for contacting us.");
                 contactForm.reset();
             }, function(error) {
-                alert("Failed to send message. Please try again later.");
+                alert("Failed to send messages. Please try again later.");
                 console.error("EmailJS error:", error);
             });
         });
