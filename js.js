@@ -115,38 +115,29 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
 });
 
-// EmailJS contact form submission handling with initialization
-window.onEmailJSReady = function() {
+function SendMail() {
     if (typeof emailjs === 'undefined') {
         console.error('EmailJS SDK not loaded.');
+        alert("EmailJS SDK not loaded. Please check your internet connection and try again.");
         return;
     }
 
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+    var params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        service: document.getElementById("service").value,
+        message: document.getElementById("message").value
+    };
 
-            console.log('Submitting contact form via EmailJS...');
-
-            // Send email using EmailJS
-            emailjs.send("service_5pjnn8m", "template_vyv0zvk", {
-                name: contactForm.name.value,
-                email: contactForm.email.value,
-                phone: contactForm.phone.value,
-                service: contactForm.service.value,
-                message: contactForm.message.value
-            })
-            .then(function(response) {
-                console.log('EmailJS response:', response);
-                alert("Message sent successfully! Thank you for contacting us.");
-                contactForm.reset();
-            }, function(error) {
-                console.error('EmailJS error:', error);
-                alert("Failed to send message. Please try again later.");
-            });
-        });
-    } else {
-        console.error('Contact form element not found.');
-    }
-};
+    emailjs.send("service_5pjnn8m", "template_vyv0zvk", params)
+    .then(function(response) {
+        console.log('EmailJS response:', response);
+        alert("Message sent successfully! Thank you for contacting us.");
+        document.getElementById("contact-form").reset();
+    })
+    .catch(function(error) {
+        console.error('EmailJS error:', error);
+        alert("Failed to send message. Please try again later.");
+    });
+}
