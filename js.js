@@ -115,8 +115,14 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
 });
 
-// EmailJS contact form submission handling
+// EmailJS contact form submission handling with initialization
 document.addEventListener('DOMContentLoaded', function() {
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS SDK not loaded.');
+        return;
+    }
+    emailjs.init("EGF1H6QGYshJwlWbU"); // Initialize EmailJS here
+
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
