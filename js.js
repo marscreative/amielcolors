@@ -114,3 +114,30 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
 });
+
+// EmailJS contact form submission handling
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Send email using EmailJS
+            emailjs.send("default_service", "template_amielcolors", {
+                from_name: contactForm.name.value,
+                from_email: contactForm.email.value,
+                phone: contactForm.phone.value,
+                service: contactForm.service.value,
+                message: contactForm.message.value,
+                to_email: "marvinmangahas32@gmail.com"
+            })
+            .then(function(response) {
+                alert("Message sent successfully! Thank you for contacting us.");
+                contactForm.reset();
+            }, function(error) {
+                alert("Failed to send message. Please try again later.");
+                console.error("EmailJS error:", error);
+            });
+        });
+    }
+});
