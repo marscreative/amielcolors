@@ -142,3 +142,21 @@ function SendMail() {
         alert("Failed to send message. Please try again later.");
     });
 }
+
+// Disable text selection and copying but keep right-click enabled
+
+// Prevent copy event to disable copying text
+document.addEventListener('copy', function(e) {
+    e.preventDefault(); // Prevent the default copy action
+    alert('Copying text is disabled on this website.'); // Optional alert to inform user
+});
+
+// Prevent double-click text selection
+document.addEventListener('dblclick', function(e) {
+    e.preventDefault(); // Prevent text selection on double click
+});
+
+// Prevent selection start (e.g., dragging to select text)
+document.addEventListener('selectstart', function(e) {
+    e.preventDefault(); // Prevent text selection start
+});
