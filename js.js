@@ -115,6 +115,7 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
 });
 
+/*
 function SendMail() {
     if (typeof emailjs === 'undefined') {
         console.error('EmailJS SDK not loaded.');
@@ -142,6 +143,7 @@ function SendMail() {
         alert("Failed to send message. Please try again later.");
     });
 }
+*/
 
 // Disable text selection and copying but keep right-click enabled
 

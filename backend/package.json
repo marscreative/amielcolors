@@ -1,0 +1,13 @@
+{
+  "name": "email-forwarding-backend",
+  "version": "1.0.0",
+  "description": "Backend API for email forwarding using nodemailer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.3"
+  }
+}
